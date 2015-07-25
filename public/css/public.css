@@ -1,0 +1,56 @@
+html { height: 100%; width: 100%; }
+body {
+  width: 100%; height: 100%;
+  margin: 0; padding: 0; border: 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  font-size: 13px; line-height: 15px;
+  background: #EEE4B9;
+}
+
+img { border: none; }
+a {color: #8D0D19; }
+a:hover { color: #1A446C }
+
+#login-header {
+  height: 20px;
+  margin: 0; padding: 0; text-align: right;
+  background: #1A446C; color: #000000;
+}
+
+#login-header input, label { 
+  display: inline;
+  margin: 0; padding: 0px 15px;
+}
+
+#login-header input {
+  width: 100px;
+}
+
+#login-header input.button {
+  width: 50px;
+  text-align: center;
+  margin: 0; padding: 0;
+}
+
+#header {
+  height: 60px;
+  margin: 0; padding: 10px; text-align: left;
+  background: #1A446C; color: #d4E6F4;
+}
+
+#nav-bar {
+  height: 40px;
+  line-height: 40px;
+  background: #999999; color: #FFFFFF;
+  width: 100%;
+  font-size: 20px;
+}
+
+ul.menu-hor {
+  list-style: none;
+  margin: 0; padding: 0;
+}
+ul.menu-hor li {
+  display: inline;
+  padding: 0px 15px;
+}
