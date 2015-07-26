@@ -10,6 +10,7 @@ body {
 img { border: none; }
 a {color: #8D0D19; }
 a:hover { color: #1A446C }
+a.nav-link { color: #FFFFFF }
 
 #login-header {
   height: 40px;
@@ -57,4 +58,9 @@ ul.menu-hor {
 ul.menu-hor li {
   display: inline;
   padding: 0px 15px;
+}
+
+form.vertical label{
+    display:inline-block;
+    width:80px;
 }
