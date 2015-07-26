@@ -6,7 +6,7 @@
 <?php
   $username = "";
 
-  if (isset($_POST['submit'])) {
+  if (isset($_POST['login'])) {
     // validations
     $required_fields = array("username", "password");
     validate_presences($required_fields);
@@ -49,16 +49,11 @@
   </head>
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
-    <h1>Log In</h1>
+    <h2>Log In</h2>
     <br />
     <br />
-    <?php
-      if (isset($_POST["login"])) {
-        echo "Username/password not found.";
-        echo "<br />";
-      }
-    
-    ?>
+    <?php echo message(); ?>
+    <br />
     <form action="login.php" method="post" class="vertical">
 		  <label>Username:</label>
       <input type="text" name="username" value="<?php echo htmlentities($username); ?>" />
