@@ -7,16 +7,19 @@
   </head>
   <body>
     <div id="login-header">
+	  <form action="register.php">
+		<input type="submit" id="button2" />
+	  </form>
       <form action="login.php" method="post">
         <label>Username:</label>
         <input type="text" name="username" value=""/>
         <label>Password:</label>
         <input type="password" name="password" value="" />
-        <input type="submit" name="login" value="Login" class="button"/>
+        <input type="submit" name="login" value="Login" id="button"/>
       </form>
     </div>
     <div id="header">
-      <h1>The Wine Guide</h1>
+      <h1>Insert Site Name Here</h1>
     </div>
     <div id="nav-bar">
       <ul class="menu-hor">

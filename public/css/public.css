@@ -4,7 +4,7 @@ body {
   margin: 0; padding: 0; border: 0;
   font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 13px; line-height: 15px;
-  background: #EEE4B9;
+  background: #a8926e;
 }
 
 img { border: none; }
@@ -12,36 +12,40 @@ a {color: #8D0D19; }
 a:hover { color: #1A446C }
 
 #login-header {
-  height: 20px;
-  margin: 0; padding: 0; text-align: right;
-  background: #1A446C; color: #000000;
+  height: 40px;
+  margin: 0; padding: 0; float: right;
+  background: #a8926e; color: #000000;
 }
-
+#login-header form {
+  float:right;
+  padding: 0px 10px;
+}
 #login-header input, label { 
   display: inline;
-  margin: 0; padding: 0px 15px;
+  margin: 0; padding: 0
 }
-
 #login-header input {
   width: 100px;
-}
-
-#login-header input.button {
-  width: 50px;
   text-align: center;
   margin: 0; padding: 0;
+}
+#login-header input#button {
+  width: 50px;
+}
+#login-header input#button2 {
+  width: 80px;
 }
 
 #header {
   height: 60px;
   margin: 0; padding: 10px; text-align: left;
-  background: #1A446C; color: #d4E6F4;
+  background: #a8926e; color: #990012;
 }
 
 #nav-bar {
   height: 40px;
   line-height: 40px;
-  background: #999999; color: #FFFFFF;
+  background: #990012; color: #FFFFFF;
   width: 100%;
   font-size: 20px;
 }
