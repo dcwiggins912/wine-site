@@ -1,27 +1,16 @@
-<?php
-	function hello($name) {
-		return "Hello {$name}!";
-	}
-	
-	function redirect_to($new_location) {
-		header("Location: " . $new_location);
-		exit;
-	}
-	
-?>
+<?php require_once("../includes/session.php"); ?>
+<?php require_once("../includes/db_connection.php"); ?>
+<?php require_once("../includes/functions.php"); ?>
+<?php require_once("../includes/validation_functions.php"); ?>
 
-<?php
-	require_once("../includes/validation_functions.php");
-
-  $errors = array();
-	
+<?php	
 	if (isset($_POST['submit'])) {
 		// form was submitted
 		$username = trim($_POST["username"]);
 		$password = trim($_POST["password"]);
-    $firstname = trim($_POST["first-name"]);
-    $lastname = trim($_POST["last-name"]);
-    $email = trim($_POST["email"]);
+		$firstname = trim($_POST["first-name"]);
+		$lastname = trim($_POST["last-name"]);
+		$email = trim($_POST["email"]);
 
 		// Validations
 		$fields_required = array("username", "password", "email");
@@ -33,21 +22,33 @@
 		}
 		
 		$fields_with_max_lengths = array("username" => 30);
-    $fields_with_min_lengths = array("username" => 3, "password" => 8);
+		$fields_with_min_lengths = array("username" => 3, "password" => 8);
 		validate_max_lengths($fields_with_max_lengths);
-    validate_min_lengths($fields_with_min_lengths);
-    
-    validate_email($email);
+		validate_min_lengths($fields_with_min_lengths);
+		
+		validate_email($email);
 		
 		if (empty($errors)) {
-			// try to login
-			//if ($username == "kevin" && $password == "secret") {
-				// successful login
-			//	redirect_to("basic.html");
-			//} else {
-			//	$message = "Username/password do not match.";
-			//}
-		}
+    // Perform Create
+
+      $username = mysql_prep($_POST["username"]);
+      $hashed_password = password_encrypt($_POST["password"]);
+      
+      $query  = "INSERT INTO userss (";
+      $query .= "  username, hashed_password";
+      $query .= ") VALUES (";
+      $query .= "  '{$username}', '{$hashed_password}'";
+      $query .= ")";
+      $result = mysqli_query($connection, $query);
+
+      if ($result) {
+        // Success
+        $_SESSION["message"] = "User created.";
+        redirect_to("register_success.php");
+      } else {
+        // Failure
+        $_SESSION["message"] = "User creation failed.";
+      }
 
 	} else {
 		$username = "";
