@@ -18,41 +18,43 @@
 		}
 	}
   
-  function find_user_by_id($user_id) {
-		global $connection;
-		
-		$safe_user_id = mysql_prep($user_id);
-		
-		$query  = "SELECT * ";
-		$query .= "FROM users ";
-		$query .= "WHERE id = {$safe_user_id} ";
+  function find_row_by_field($field, $column_name, $table_name) {
+    global $connection;
+    
+    if (is_string($field)) {
+      $safe_field = "'" . mysql_prep($field) . "'";
+    }
+    else {
+      $safe_field = mysql_prep($field);
+    }
+    
+    $query  = "SELECT * ";
+		$query .= "FROM {$table_name} ";
+		$query .= "WHERE {$column_name} = {$safe_field} ";
 		$query .= "LIMIT 1";
-		$user_set = mysqli_query($connection, $query);
-		confirm_query($user_set);
-		if($user = mysqli_fetch_assoc($user_set)) {
-			return $user;
-		} else {
-			return null;
-		}
+    
+    
+    $result_set = mysqli_query($connection, $query);
+    confirm_query($result_set);
+    if ($result = mysqli_fetch_assoc($result_set)) {
+      return $result;
+    }
+    else {
+      return null;
+    } 
+  }
+  
+  function find_user_by_id($user_id) {
+    return find_row_by_field($user_id, "id", "users");
 	}
 
 	function find_user_by_username($username) {
-		global $connection;
-		
-		$safe_username = mysql_prep($username);
-		
-		$query  = "SELECT * ";
-		$query .= "FROM users ";
-		$query .= "WHERE username = '{$safe_username}' ";
-		$query .= "LIMIT 1";
-		$user_set = mysqli_query($connection, $query);
-		confirm_query($user_set);
-		if($user = mysqli_fetch_assoc($user_set)) {
-			return $user;
-		} else {
-			return null;
-		}
+    return find_row_by_field($username, "username", "users");
 	}
+  
+  function find_user_by_email($email) {
+    return find_row_by_field($email, "email", "user_info");
+  }
   
   function password_encrypt($password) {
   	$hash_format = "$2y$10$";   // Tells PHP to use Blowfish with a "cost" of 10
@@ -116,6 +118,4 @@
 			redirect_to("login.php");
 		}
 	}
-
- 
 ?>

@@ -27,28 +27,55 @@
 		validate_min_lengths($fields_with_min_lengths);
 		
 		validate_email($email);
-		
+    
+    // Check for duplicate username
+    if (find_user_by_username($username)) {
+      $errors["username"] = "Username not available";
+    }
+    
+    if (find_user_by_email($email)) {
+      $errors["email"] = "This email is associated with an existing account";
+    }
+    
 		if (empty($errors)) {
-    // Perform Create
+      // Perform Create
 
       $username = mysql_prep($_POST["username"]);
       $hashed_password = password_encrypt($_POST["password"]);
       
-      $query  = "INSERT INTO userss (";
+      $query  = "INSERT INTO users (";
       $query .= "  username, hashed_password";
       $query .= ") VALUES (";
       $query .= "  '{$username}', '{$hashed_password}'";
       $query .= ")";
       $result = mysqli_query($connection, $query);
-
+      
       if ($result) {
-        // Success
-        $_SESSION["message"] = "User created.";
-        redirect_to("register_success.php");
-      } else {
-        // Failure
+      // Success; add user info to table
+        $user_row = find_user_by_username($username);
+        if ($user_row) {
+          $id = $user_row["id"];
+          
+          $safe_email = mysql_prep($email);
+          $safe_firstname = mysql_prep($firstname);
+          $safe_lastname = mysql_prep($lastname);
+          
+          $query = "INSERT INTO user_info (";
+          $query .= "  id, email, first_name, last_name";
+          $query .= ") VALUES (";
+          $query .= "  {$id}, '{$safe_email}', '{$safe_firstname}', '{$safe_lastname}'";
+          $query .= ")";
+          $result = mysqli_query($connection, $query);
+        
+          $_SESSION["message"] = "User created.";
+          redirect_to("register_success.php");
+        }
+      }
+      else {
+      // Failure
         $_SESSION["message"] = "User creation failed.";
       }
+    }
 
 	} else {
 		$username = "";
