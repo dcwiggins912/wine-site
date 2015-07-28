@@ -118,4 +118,21 @@
 			redirect_to("login.php");
 		}
 	}
+  
+  function make_option($value) {
+    return "<option value=\"{$value}\">{$value}</option>";
+  }
+  
+  function month_menu() {
+    for ($m = 1; $m <= 12; $m++) {
+      $month = date('F', mktime(0, 0, 0, $m, 1, date('Y')));
+      echo make_option($month);
+    }
+  }
+  
+  function number_menu($start, $end) {
+    for ($y = $start; $y <= $end; $y++) {
+      echo make_option($y);    
+    }
+  }
 ?>

@@ -2,11 +2,13 @@
 
 <html lang="en">
   <head>
-    <title>My Wine Site</title>
+    <title>Registration Success</title>
     <link href="css/public.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
-    <h1>Home Page</h1>
+    <h1>Your account was successfully registered</h1>
+    <br/>
+    <h3>Please <a href="login.php">Login</a> to begin using your new account</h3>
   </body>
  </html>

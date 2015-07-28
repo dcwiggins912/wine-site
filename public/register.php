@@ -11,7 +11,10 @@
 		$firstname = trim($_POST["first-name"]);
 		$lastname = trim($_POST["last-name"]);
 		$email = trim($_POST["email"]);
-
+    $birth_month = date_parse($_POST["month"])['month'];
+    $birth_day = $_POST["day"];
+    $birth_year = $_POST["year"];
+    
 		// Validations
 		$fields_required = array("username", "password", "email");
 		foreach($fields_required as $field) {
@@ -27,6 +30,7 @@
 		validate_min_lengths($fields_with_min_lengths);
 		
 		validate_email($email);
+    validate_date($birth_month, $birth_day, $birth_year);
     
     // Check for duplicate username
     if (find_user_by_username($username)) {
@@ -61,24 +65,29 @@
           $safe_lastname = mysql_prep($lastname);
           
           $query = "INSERT INTO user_info (";
-          $query .= "  id, email, first_name, last_name";
+          $query .= "  id, email, first_name, last_name, birthdate";
           $query .= ") VALUES (";
-          $query .= "  {$id}, '{$safe_email}', '{$safe_firstname}', '{$safe_lastname}'";
+          $query .= "  {$id}, '{$safe_email}', '{$safe_firstname}', '{$safe_lastname}', "
+            . "'{$birth_year}-{$birth_month}-{$birth_day}'";
           $query .= ")";
           $result = mysqli_query($connection, $query);
         
-          $_SESSION["message"] = "User created.";
+          //$_SESSION["message"] = "User created.<br />";
           redirect_to("register_success.php");
         }
       }
       else {
       // Failure
-        $_SESSION["message"] = "User creation failed.";
+        //$_SESSION["message"] = "User creation failed.";
       }
+      
     }
 
 	} else {
 		$username = "";
+    $firstname = "";
+    $lastname = "";
+    $email = "";
 	}
 
 ?>
@@ -92,7 +101,7 @@
     <link href="css/public.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    <?php require_once("../includes/layouts/login_header.php"); ?>
+    
     <?php require_once("../includes/layouts/header.php"); ?>
     <h1>Create a New Account</h1>
     <br />
@@ -108,19 +117,41 @@
       <br />
 			<br />
       <label>First Name:</label>
-      <input type="text" name="first-name" value="" />
+      <input type="text" name="first-name" value="<?php echo htmlspecialchars($firstname); ?>" />
       <br />
       <label>Last Name:</label>
-      <input type="text" name="last-name" value="" />
+      <input type="text" name="last-name" value="<?php echo htmlspecialchars($lastname); ?>" />
+      <br />
+      <label>Birthdate:</label>
+      <select name="month">
+        <option value="default"></option>
+        <?php 
+          month_menu();
+        ?>
+      </select>
+      <select name="day">
+        <option value="default"></option>
+        <?php 
+          number_menu(1, 31);
+        ?>
+      </select>
+      <select name="year">
+        <option value="default"></option>
+        <?php 
+          number_menu(1900, 2015);
+        ?>
+      </select>
+      <?php echo error_message("birthdate"); ?>
       <br />
       <br />
       <label>Email:</label>
-      <input type="text" name="email" value="" />
+      <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>" />
       <?php echo error_message("email"); ?>
       <br />
       <br />
 		  <input type="submit" name="submit" value="Submit" />
 		</form>
-
+    <br />
+    <br />
 	</body>
 </html>

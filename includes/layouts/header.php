@@ -1,3 +1,8 @@
+<?php
+  if (!isset($_SESSION["login"]) or !$_SESSION["login"]) {
+    require_once("../includes/layouts/login_header.php");  
+  }
+?>
 <div id="header">
   <h1>Insert Site Name Here</h1>
 </div>

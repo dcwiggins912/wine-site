@@ -24,12 +24,16 @@
         // Mark user as logged in
         $_SESSION["user_id"] = $found_user["id"];
         $_SESSION["username"] = $found_user["username"];
+        $_SESSION["login"] = true;
         redirect_to("profile.php");
       }
       else {
         // Failure
         $_SESSION["message"] = "Username/password not found.";
       }
+    }
+    else {
+      $_SESSION["message"] = "Please enter a value username/password.";
     }
   }
   else {
@@ -51,8 +55,8 @@
     <?php require_once("../includes/layouts/header.php"); ?>
     <h2>Log In</h2>
     <br />
-    <br />
     <?php echo message(); ?>
+    <br />
     <br />
     <form action="login.php" method="post" class="vertical">
 		  <label>Username:</label>
@@ -64,10 +68,5 @@
       <br />
 		  <input type="submit" name="login" value="Login"/>
     </form>
-    <pre>
-      <?php
-        print_r($_POST);
-      ?>  
-    </pre>
  
 <?php include("../includes/layouts/footer.php"); ?>
