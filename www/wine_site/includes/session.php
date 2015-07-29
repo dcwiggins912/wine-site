@@ -25,5 +25,15 @@
 			return $errors;
 		}
 	}
-	
+ 
+	function logged_in() {
+		return isset($_SESSION['user_id']);
+	}
+  
+  function check_login_redirect($message) {
+    if (!logged_in()) {
+      $_SESSION["message"] = $message;
+      redirect_to("login.php");
+    }
+  }
 ?>

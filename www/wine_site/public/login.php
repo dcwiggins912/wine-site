@@ -24,7 +24,6 @@
         // Mark user as logged in
         $_SESSION["user_id"] = $found_user["id"];
         $_SESSION["username"] = $found_user["username"];
-        $_SESSION["login"] = true;
         redirect_to("profile.php");
       }
       else {
@@ -33,7 +32,7 @@
       }
     }
     else {
-      $_SESSION["message"] = "Please enter a value username/password.";
+      $_SESSION["message"] = "Please enter a valid username/password.";
     }
   }
   else {

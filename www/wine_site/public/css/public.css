@@ -10,30 +10,23 @@ body {
 img { border: none; }
 a {color: #8D0D19; }
 a:hover { color: #1A446C }
-a.nav-link { color: #FFFFFF }
 
-#login-header {
+.log-header {
   height: 40px;
   margin: 0; padding: 0; float: right;
   background: #a8926e; color: #000000;
 }
-#login-header form {
+.log-header form {
   float:right;
   padding: 0px 10px;
 }
-#login-header input, label { 
+.log-header input, label { 
   display: inline;
   margin: 0; padding: 0
 }
-#login-header input {
+.log-header input {
   width: 100px;
   margin: 0; padding: 0;
-}
-#login-header input#button {
-  width: 50px;
-}
-#login-header input#button2 {
-  width: 80px;
 }
 
 #header {
@@ -49,6 +42,8 @@ a.nav-link { color: #FFFFFF }
   width: 100%;
   font-size: 20px;
 }
+
+#nav-bar a { color: #FFFFFF }
 
 ul.menu-hor {
   list-style: none;
