@@ -88,6 +88,9 @@
     $firstname = "";
     $lastname = "";
     $email = "";
+    $birth_month = 0;
+    $birth_day = 0;
+    $birth_year = 0;
 	}
 
 ?>
@@ -126,19 +129,19 @@
       <select name="month">
         <option value="default"></option>
         <?php 
-          month_menu();
+          month_menu($birth_month);
         ?>
       </select>
       <select name="day">
         <option value="default"></option>
         <?php 
-          number_menu(1, 31);
+          number_menu(1, 31, $birth_day);
         ?>
       </select>
       <select name="year">
         <option value="default"></option>
         <?php 
-          number_menu(1900, 2015);
+          number_menu(1900, 2015, $birth_year);
         ?>
       </select>
       <?php echo error_message("birthdate"); ?>

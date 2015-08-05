@@ -16,6 +16,5 @@
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
     <h1>Welcome, <?php echo $_SESSION["username"]; ?></h1>
-    
-  </body>
- </html>
+    <a href="profile_update.php">Edit my profile</a>  
+    <?php require_once("../includes/layouts/footer.php"); ?>

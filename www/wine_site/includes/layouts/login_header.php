@@ -1,4 +1,4 @@
-<div class="log-header">
+<div id="login-header">
   <form action="register.php">
     <input type="submit" value="Register" style="width: 80px;" />
   </form>
@@ -10,3 +10,4 @@
     <input type="submit" name="login" value="Log In" style="width: 50px;"/>
   </form>
 </div>
+<br />

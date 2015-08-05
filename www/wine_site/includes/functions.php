@@ -44,6 +44,10 @@
     } 
   }
   
+  function find_user_info_by_id($user_id) {
+    return find_row_by_field($user_id, "id", "user_info");
+	}
+  
   function find_user_by_id($user_id) {
     return find_row_by_field($user_id, "id", "users");
 	}
@@ -115,20 +119,25 @@
 		}
 	}
   
-  function make_option($value) {
-    return "<option value=\"{$value}\">{$value}</option>";
+  function make_option($value, $is_selected) {
+    $option = "<option value=\"{$value}\"";
+    if ($is_selected) {
+      $option .= " selected=\"selected\"";
+    }
+    $option .= ">{$value}</option>";
+    return $option;
   }
   
-  function month_menu() {
+  function month_menu($selected) {
     for ($m = 1; $m <= 12; $m++) {
       $month = date('F', mktime(0, 0, 0, $m, 1, date('Y')));
-      echo make_option($month);
+      echo make_option($month, $m == $selected);
     }
   }
   
-  function number_menu($start, $end) {
+  function number_menu($start, $end, $selected) {
     for ($y = $start; $y <= $end; $y++) {
-      echo make_option($y);    
+      echo make_option($y, $y == $selected);    
     }
   }
 ?>

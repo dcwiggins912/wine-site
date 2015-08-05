@@ -18,5 +18,5 @@
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
     <h1>Home Page</h1>
-  </body>
- </html>
+    <?php require_once("../includes/layouts/footer.php"); ?>
+    

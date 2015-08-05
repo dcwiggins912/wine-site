@@ -36,6 +36,7 @@
           if ($wine_result) {
             $wine_row = mysqli_fetch_assoc($wine_result);
             var_dump($wine_row);
+            var_dump($wine_row);
           }
         }
       }
@@ -44,5 +45,4 @@
       
       }
     ?>
-  </body>
- </html>
+    <?php require_once("../includes/layouts/footer.php"); ?>
