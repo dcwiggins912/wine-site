@@ -6,8 +6,7 @@
 <?php 
   check_login_redirect("Please log in to view your profile");
 ?>
-<!DOCTYPE html PUBLIC "-//W3C//DD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd>
 <html lang="en">
   <head>
     <title>My Wine Site</title>
@@ -18,3 +17,4 @@
     <h2>Welcome, <?php echo $_SESSION["username"]; ?></h2>
     <a href="profile_update.php">Edit my profile</a>  
     <?php require_once("../includes/layouts/footer.php"); ?>
+    

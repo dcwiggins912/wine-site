@@ -12,8 +12,12 @@ a:hover { color: #1A446C }
 h2 {
     margin-bottom: 40px;
 }
+h1 {
+  margin: 0;
+}
 
 #container {
+  margin-top: 20px;
   min-height: 100%;
   position: relative;
 }
@@ -33,11 +37,11 @@ h2 {
   background: #a8926e; color: #000000;
 }
 #login-header form, #logout-footer  form {
-  padding: 0px 10px;
+  margin: 0px 10px;
 }
 #login-header input, label{ 
   display: inline;
-  margin: 0; padding: 0px 10px;
+  margin: 0px 10px;
 }
 #login-header input {
   width: 100px;
@@ -47,23 +51,21 @@ h2 {
   float: right;
 }
 #logout-footer {
-  bottom: 0;
   width: 200px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: auto;
 }
 
 #header {
-  height: 120px;
   width: 100%;
   min-width: 500px;
-  margin-bottom: 10px;
-  margin-top: 10px;
+  margin-bottom: 30px;
   text-align: left;
   background: #a8926e; color: #990012;
 }
 h1 {
-  padding: 0px 10px;
+  margin: 0px 10px;
 }
 
 #nav-bar {
@@ -72,6 +74,10 @@ h1 {
   background: #990012; color: #FFFFFF;
   width: 100%;
   font-size: 20px;
+}
+
+#profile-edit * {
+  margin: 2px 0px;
 }
 
 #logout{
@@ -96,7 +102,7 @@ ul.menu-hor {
 }
 ul.menu-hor li {
   display: inline;
-  padding: 0px 15px;
+  margin: 0px 15px;
 }
 
 form.vertical label{

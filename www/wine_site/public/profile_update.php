@@ -95,22 +95,17 @@
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
-
+<!DOCTYPE html PUBLIC "-//W3C//DD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd>
 <html lang="en">
-	<head>
+  <head>
     <title>My Wine Site</title>
     <link href="css/public.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    
     <?php require_once("../includes/layouts/header.php"); ?>
     <h2>Update Profile</h2>
-    <br />
-		
-		<form action="profile_update.php" method="post" class="vertical">
-		  <label>Username:</label>
+    <form action="profile_update.php" method="post" class="vertical" id="profile-edit">
+      <label>Username:</label>
       <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" />
       <?php echo error_message("username"); ?>
       <br />
@@ -147,9 +142,8 @@
       <?php echo error_message("birthdate"); ?>
       <br />
       <br />
-      
-		  <input type="submit" name="update" value="Update" style="width: 80px;"/>
-		</form>
+      <input type="submit" name="update" value="Update" style="width: 80px;"/>
+    </form>
     <br />
     <br />
     <h2>Delete</h2>

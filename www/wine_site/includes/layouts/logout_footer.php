@@ -1,4 +1,6 @@
 <div id="logout-footer">
+<br />
+<br />
   <form action="index.php" method="post" id="logout">
     <label>Currently logged in as:</label>
     <br />

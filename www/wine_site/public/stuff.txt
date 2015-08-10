@@ -1,0 +1,47 @@
+<form action="profile_update.php" method="post" class="vertical" id="profile-edit">
+		  <label>Username:</label>
+      <input type="text" name="username" value="<?php echo htmlspecialchars($username); ?>" />
+      <?php echo error_message("username"); ?>
+      <br />
+      <label>Email:</label>
+      <input type="text" name="email" value="<?php echo htmlspecialchars($email); ?>" />
+      <?php echo error_message("email"); ?>
+      <br />
+      <br />
+      <label>First Name:</label>
+      <input type="text" name="first-name" value="<?php echo htmlspecialchars($firstname); ?>" />
+      <br />
+      <label>Last Name:</label>
+      <input type="text" name="last-name" value="<?php echo htmlspecialchars($lastname); ?>" />
+      <br />
+      <label>Birthdate:</label>
+      <select name="month">
+        <option value="default"></option>
+        <?php 
+          month_menu($birth_month);
+        ?>
+      </select>
+      <select name="day">
+        <option value="default"></option>
+        <?php 
+          number_menu(1, 31, $birth_day);
+        ?>
+      </select>
+      <select name="year">
+        <option value="default"></option>
+        <?php 
+          number_menu(1900, 2015, $birth_year);
+        ?>
+      </select>
+      <?php echo error_message("birthdate"); ?>
+      <br />
+      <br />
+      
+		  <input type="submit" name="update" value="Update" style="width: 80px;"/>
+		</form>
+    <br />
+    <br />
+    <h2>Delete</h2>
+    <form action="profile_delete.php" method="post">
+      <input type="submit" name="delete" value="Delete My Profile" onclick="return confirm('Are you sure you want to delete your profile? This CANNOT be undone');" style="width: 125px;"/>
+    </form>
