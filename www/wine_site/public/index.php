@@ -3,11 +3,6 @@
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validation_functions.php"); ?>
 
-<?php
-  if (isset($_POST["logout"])) {
-    $_SESSION = array();
-  }
-?>
 <!DOCTYPE html PUBLIC "-//W3C//DD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd>
 
 <html lang="en">
@@ -17,6 +12,6 @@
   </head>
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
-    <h1>Home Page</h1>
+    <h2>Home Page</h2>
     <?php require_once("../includes/layouts/footer.php"); ?>
     

@@ -3,6 +3,18 @@
 <?php require_once("../includes/functions.php"); ?>
 <?php require_once("../includes/validation_functions.php"); ?>
 
+
+<?php
+  if (isset($_POST)) {
+    
+    
+  }
+  else {
+    
+  }
+
+?>
+
 <!DOCTYPE html PUBLIC "-//W3C//DD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"

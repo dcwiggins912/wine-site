@@ -17,7 +17,7 @@
   </head>
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
-    <h1><?php echo $_SESSION["username"]; ?>'s Virtual Cellar</h1>
+    <h2><?php echo $_SESSION["username"]; ?>'s Virtual Cellar</h2>
     <?php
       $user_id = $_SESSION['user_id'];
       
@@ -35,8 +35,7 @@
           $wine_result = mysqli_query($connection, $query);
           if ($wine_result) {
             $wine_row = mysqli_fetch_assoc($wine_result);
-            var_dump($wine_row);
-            var_dump($wine_row);
+            echo wine_as_div($wine_row);
           }
         }
       }

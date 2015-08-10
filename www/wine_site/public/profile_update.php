@@ -148,12 +148,12 @@
       <br />
       <br />
       
-		  <input type="submit" name="update" value="Update" />
+		  <input type="submit" name="update" value="Update" style="width: 80px;"/>
 		</form>
     <br />
     <br />
     <h2>Delete</h2>
     <form action="profile_delete.php" method="post">
-      <input type="submit" name="delete" value="Delete My Profile" onclick="return confirm('Are you sure you want to delete your profile? This CANNOT be undone');"/>
+      <input type="submit" name="delete" value="Delete My Profile" onclick="return confirm('Are you sure you want to delete your profile? This CANNOT be undone');" style="width: 125px;"/>
     </form>
     <?php require_once("../includes/layouts/footer.php"); ?>

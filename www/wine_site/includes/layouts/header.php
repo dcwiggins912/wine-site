@@ -5,9 +5,7 @@
         require_once("../includes/layouts/login_header.php");  
       }
     ?>
-    <div id="title">
-      <h1>Insert Site Name Here</h1>
-    </div>
+    <h1>Insert Site Name Here</h1>
     <?php
       if (logged_in()) {
         require_once("../includes/layouts/search_bar.php"); 

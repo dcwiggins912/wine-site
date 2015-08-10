@@ -10,11 +10,11 @@
 
 <html lang="en">
   <head>
-    <title>Homepage</title>
+    <title>My Wine Site</title>
     <link href="css/public.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <?php require_once("../includes/layouts/header.php"); ?>
-    <h1>Welcome, <?php echo $_SESSION["username"]; ?></h1>
+    <h2>Welcome, <?php echo $_SESSION["username"]; ?></h2>
     <a href="profile_update.php">Edit my profile</a>  
     <?php require_once("../includes/layouts/footer.php"); ?>

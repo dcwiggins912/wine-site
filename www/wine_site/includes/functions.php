@@ -140,4 +140,29 @@
       echo make_option($y, $y == $selected);    
     }
   }
+  
+  function wine_as_table_row($row) {
+    $output = "<tr>";
+    foreach ($row as $label => $value) {
+      if ($label == "id") {
+        continue;
+      }
+      $output .= "<td>" . $value . "</td>\n";		
+    }
+    $output .= "</tr>";	  
+    return $output;
+  }
+  
+  function wine_as_div($row) {
+    $output = "<div class='wine'>\n";
+    foreach ($row as $label => $value) {
+      if ($label == "id") {
+        continue;
+      }
+      $output .= "<b>" . ucfirst($label) . "</b>: {$value}<br />";	
+    }
+    $output .= "</div>\n";
+    return $output;
+    
+  }
 ?>
