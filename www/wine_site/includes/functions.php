@@ -144,9 +144,6 @@
   function wine_as_table_row($row) {
     $output = "<tr>";
     foreach ($row as $label => $value) {
-      if ($label == "id") {
-        continue;
-      }
       $output .= "<td>" . $value . "</td>\n";		
     }
     $output .= "</tr>";	  
@@ -156,11 +153,18 @@
   function wine_as_div($row) {
     $output = "<div class='wine'>\n";
     foreach ($row as $label => $value) {
-      if ($label == "id") {
-        continue;
+      if ($label == "filename") {
+        $output .= "<div class='wine-pic'>\n";
+        $output .= "<img src='images/{$value}' />\n";
+        $output .= "</div>\n";
+        $output .= "<div class='wine-text'>\n";
       }
-      $output .= "<b>" . ucfirst($label) . "</b>: {$value}<br />";	
+      else {
+        $output .= "<p><b>" . ucfirst($label) . "</b>: {$value}</p>\n";	
+      }
     }
+    $output .= "</div>\n";
+    $output .= "<div style='clear: both'></div>\n";
     $output .= "</div>\n";
     return $output;
     

@@ -21,27 +21,21 @@
     <?php
       $user_id = $_SESSION['user_id'];
       
-      $query = "SELECT * ";
-      $query .= "FROM user_cellar ";
-      $query .= "WHERE user_id = {$user_id}";
+      $query  = "SELECT c.filename, b.name, b.varietal, b.vintage, b.region, b.country, b.description ";
+      $query .= "FROM user_cellar a, wines b, wine_images c ";
+      $query .= "WHERE a.user_id = 1 ";
+      $query .= "AND a.wine_id = b.id ";
+      $query .= "AND a.wine_id = c.id";
+      
       $result = mysqli_query($connection, $query);
       
       if ($result) {
         while ($row = mysqli_fetch_assoc($result)) {
-          $wine_id = $row['wine_id'];
-          $query = "SELECT * ";
-          $query .= "FROM wines ";
-          $query .= "WHERE id = {$wine_id}";
-          $wine_result = mysqli_query($connection, $query);
-          if ($wine_result) {
-            $wine_row = mysqli_fetch_assoc($wine_result);
-            echo wine_as_div($wine_row);
-          }
+          echo wine_as_div($row);
         }
       }
       else {
-      
-      
+        echo("Query failed.\n");      
       }
     ?>
     <?php require_once("../includes/layouts/footer.php"); ?>
