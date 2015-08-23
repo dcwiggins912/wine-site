@@ -5,8 +5,8 @@
 
 
 <?php
-  if (isset($_POST)) {
-    
+  if (isset($_GET)) {
+  
     
   }
   else {
@@ -30,4 +30,7 @@
     <?php require_once("../includes/layouts/header.php"); ?>
     <h2>Search Wines</h2>
     <br />
+    <?php
+
+?>
     <?php require_once("../includes/layouts/footer.php"); ?>
