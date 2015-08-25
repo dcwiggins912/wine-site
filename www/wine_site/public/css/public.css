@@ -10,14 +10,16 @@ img { border: none; }
 a {color: #8D0D19; }
 a:hover { color: #1A446C }
 h2 {
-    margin-bottom: 40px;
+  margin-bottom: 40px;
 }
 h1 {
-  margin: 0;
+  padding-top: 10px;
+  margin: 0px 10px;
+  float: left;
 }
 
 #container {
-  margin-top: 20px;
+  margin-top: 5px;
   min-height: 100%;
   position: relative;
 }
@@ -63,9 +65,6 @@ h1 {
   margin-bottom: 30px;
   text-align: left;
   background: #a8926e; color: #990012;
-}
-h1 {
-  margin: 0px 10px;
 }
 
 #nav-bar {
@@ -140,5 +139,10 @@ form.center label, input{
 #search-bar {
   width: 410px;
   margin-left: auto;
+  margin-bottom: 5px;
+}
+
+#header-top {
+  min-height: 50px;
 }
 

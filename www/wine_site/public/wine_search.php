@@ -5,7 +5,7 @@
 
 
 <?php
-  if (isset($_GET)) {
+  if (isset($_GET) and !empty($_GET)) {
     $query  = "SELECT b.filename, a.name, a.varietal, a.vintage, a.region, a.country, a.description ";
     $query .= "FROM wines a, wine_images b WHERE ";
     $query .= "a.id = b.id ";
@@ -30,8 +30,7 @@
 
 ?>
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
-   "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
 	<head>
@@ -39,7 +38,6 @@
     <link href="css/public.css" media="all" rel="stylesheet" type="text/css" />
   </head>
   <body>
-    
     <?php require_once("../includes/layouts/header.php"); ?>
     <h2>Search Wines</h2>
     <?php
